@@ -51,7 +51,7 @@ fun LogOutScreen(
                    )
                ) {
                    Text(
-                       text = "Cerrar Sesion",
+                       text = "Cerrar Sesión",
                        fontSize = 25.sp,
                    )
                }
