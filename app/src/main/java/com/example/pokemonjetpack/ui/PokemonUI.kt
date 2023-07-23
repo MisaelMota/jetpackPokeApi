@@ -40,7 +40,7 @@ fun PokemonListItem(pokemon: Pokemon) {
             contentScale = ContentScale.Crop
         )
         Spacer(modifier = Modifier.width(16.dp))
-        Column {
+        Column() {
             Text(text = pokemon.name)
             Text(text = "Height: ${pokemon.height}")
             Text(text = "Weight: ${pokemon.weight}")
