@@ -4,7 +4,8 @@ data class Pokemon(
     val photoUrl: String,
     val name: String,
     val height: String,
-    val weight: String
+    val weight: String,
+    val id: Int
 )
 
 data class PokemonListResponse(

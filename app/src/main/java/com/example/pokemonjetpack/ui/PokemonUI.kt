@@ -1,8 +1,10 @@
 package com.example.pokemonjetpack.ui
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Text
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.MutableState
@@ -29,9 +31,10 @@ fun PokemonListItem(pokemon: Pokemon) {
         modifier = Modifier
             .fillMaxWidth()
             .padding(vertical = 8.dp, horizontal = 16.dp)
+            .background(MaterialTheme.colorScheme.background)
     ) {
         Image(
-            painter = rememberImagePainter(data = pokemon.photoUrl),
+            painter = rememberImagePainter(data = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png"),
             contentDescription = null,
             modifier = Modifier.size(96.dp),
             contentScale = ContentScale.Crop
@@ -41,6 +44,7 @@ fun PokemonListItem(pokemon: Pokemon) {
             Text(text = pokemon.name)
             Text(text = "Height: ${pokemon.height}")
             Text(text = "Weight: ${pokemon.weight}")
+            Text(text = "id: ${pokemon.id}")
         }
     }
 }

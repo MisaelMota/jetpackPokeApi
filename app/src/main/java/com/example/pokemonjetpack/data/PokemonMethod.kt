@@ -4,7 +4,7 @@ import okhttp3.*
 import com.google.gson.Gson
 
 suspend fun fetchPokemonList(): PokemonListResponse {
-    val url = "https://pokeapi.co/api/v2/pokemon"
+    val url = "https://pokeapi.co/api/v2/pokemon?offset=0&limit=50"
     val request = Request.Builder()
         .url(url)
         .build()

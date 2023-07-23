@@ -13,6 +13,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.pokemonjetpack.ui.LogOutScreen
 import com.example.pokemonjetpack.ui.LoginScreen
 import com.example.pokemonjetpack.ui.MainScreen
 import com.example.pokemonjetpack.ui.theme.PokemonJetpackTheme
@@ -34,6 +35,9 @@ class MainActivity : ComponentActivity() {
                         }
                         composable("MainScreen"){
                             MainScreen(navController=navController)
+                        }
+                        composable("LogOutScreen"){
+                            LogOutScreen(navController=navController)
                         }
                     }
 
