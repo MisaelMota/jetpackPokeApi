@@ -10,12 +10,14 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.pokemonjetpack.ui.LogOutScreen
 import com.example.pokemonjetpack.ui.LoginScreen
 import com.example.pokemonjetpack.ui.MainScreen
+import com.example.pokemonjetpack.ui.MainViewModel
 import com.example.pokemonjetpack.ui.theme.PokemonJetpackTheme
 
 class MainActivity : ComponentActivity() {
@@ -28,13 +30,16 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
+
                     val navController= rememberNavController()
                     NavHost(navController = navController, startDestination = "LoginScreen"){
+
                         composable("LoginScreen"){
                             LoginScreen(navController = navController)
                         }
                         composable("MainScreen"){
-                            MainScreen(navController=navController)
+                            val viewModel: MainViewModel = viewModel()
+                            MainScreen(navController=navController,viewModel=viewModel)
                         }
                         composable("LogOutScreen"){
                             LogOutScreen(navController=navController)

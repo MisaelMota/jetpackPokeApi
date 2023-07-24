@@ -16,6 +16,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -27,9 +28,14 @@ import com.example.pokemonjetpack.component.LogoApp
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MainScreen(navController: NavController) {
+fun MainScreen(navController: NavController,viewModel: MainViewModel) {
 
-    val pokemonList = rememberPokemonList()
+    LaunchedEffect(Unit){
+        viewModel.fetchPokemonListVM()
+    }
+
+    val pokemonList = viewModel.pokemonList.value
+
    Scaffold(containerColor = MaterialTheme.colorScheme.background) {
        LazyColumn(
            horizontalAlignment = Alignment.End,
