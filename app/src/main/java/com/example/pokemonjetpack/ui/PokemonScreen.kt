@@ -71,7 +71,7 @@ fun MainScreen(navController: NavController,viewModel: MainViewModel) {
            if (pokemonList.isNotEmpty()) {
                LazyColumn(Modifier.background(MaterialTheme.colorScheme.background)) {
                    items(pokemonList) { pokemon ->
-                       PokemonListItem(pokemon)
+                       PokemonListItem(pokemon,navController)
                    }
                }
            } else {
